@@ -1,0 +1,10 @@
+{% for product in products %}
+  <div>
+    <h2>{{ product.title }}</h2>
+    <p>Price: ${{ product.price }}</p>
+    <p>Popularity: {{ product.popularity }}</p>
+    <p>Location: {{ product.location }}</p>
+    <p>Category: {{ product.category }}</p>
+    <!-- Add more details as needed -->
+  </div>
+{% endfor %}
