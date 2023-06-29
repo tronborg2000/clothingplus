@@ -17,7 +17,7 @@ class Product(models.Model):
     def upvote(self):
         self.votes_total += 1
         self.save()
-     
+
 
 class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
@@ -31,10 +31,10 @@ class Comment(models.Model):
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.user)
 
+
 class Vote(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='votes')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return 'Vote for product {} by {}'.format(self.product, self.user)
-

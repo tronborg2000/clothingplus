@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.db.models import Q
 from .models import Product
@@ -52,4 +52,3 @@ def upvote_product(request, pk):
     product.upvote()
     data = {'votes_total': product.votes_total}
     return JsonResponse(data)
-

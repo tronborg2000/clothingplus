@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ product.title }}</h2>
+  <p>Price: ${{ product.price }}</p>
+  <p>Popularity: {{ product.votes_total }}</p>
+  <p>Location: {{ product.location }}</p>
+  <p>Category: {{ product.category }}</p>
+  <p>Description: {{ product.description }}</p>
+  <p>Features: {{ product.features }}</p>
+  <p>Posted on: {{ product.created }}</p>
+
+  <hr>
+
+  <h3>Comments:</h3>
+  {% for comment in comments %}
+    <p>{{ comment.content }}</p>
+    <p>By: {{ comment.user.username }}</p>
+    <p>Posted on: {{ comment.created_at }}</p>
+    <hr>
+  {% endfor %}
+
+  <h3>Add a Comment:</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+  </form>
+{% endblock %}
