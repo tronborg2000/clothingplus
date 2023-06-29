@@ -14,6 +14,11 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    def upvote(self):
+        self.votes_total += 1
+        self.save()
+     
+
 class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE)

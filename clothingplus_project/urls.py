@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from products.views import product_list, product_detail, product_create, upvote_product
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('products/<int:pk>/upvote/', upvote_product, name='upvote_product'),
 ]
+

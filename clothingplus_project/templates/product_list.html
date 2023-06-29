@@ -2,9 +2,23 @@
   <div>
     <h2>{{ product.title }}</h2>
     <p>Price: ${{ product.price }}</p>
-    <p>Popularity: {{ product.popularity }}</p>
+    <p>Popularity: {{ product.votes_total }}</p>
     <p>Location: {{ product.location }}</p>
     <p>Category: {{ product.category }}</p>
-    <!-- Add more details as needed -->
+    <button class="upvote-btn" data-product-id="{{ product.id }}">Upvote</button>
   </div>
 {% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.upvote-btn').click(function() {
+      var productId = $(this).data('product-id');
+      $.post(`/products/${productId}/upvote/`, function(data) {
+        $('.upvote-btn[data-product-id=' + productId + ']').text('Upvoted!');
+        $('.upvote-btn[data-product-id=' + productId + ']').attr('disabled', true);
+        $('.upvote-count[data-product-id=' + productId + ']').text(data.votes_total);
+      });
+    });
+  });
+</script>
