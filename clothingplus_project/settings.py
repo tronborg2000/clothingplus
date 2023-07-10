@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-=9c5cfdt*ha*bd=x=dot-csb67=@tc8rt5qxp*i0gfy&37o=v8
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-heroku-app.herokuapp.com']
+ALLOWED_HOSTS = ['clothingplus-13f941c156c1.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -50,14 +50,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'clothingplus_project.wsgi.application'
 
-# Database settings for Heroku
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -73,17 +72,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization settings
 LANGUAGE_CODE = 'en-us'
+
 TIME_ZONE = 'UTC'
+
 USE_I18N = True
+
 USE_TZ = True
 
-# Static files settings
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Default primary key field type
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication-related settings
@@ -92,4 +92,3 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = '/products/'
-
