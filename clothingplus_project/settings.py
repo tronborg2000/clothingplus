@@ -92,3 +92,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = '/products/'
+
+import os
+
+if 'DYNO' in os.environ:
+    LOGGING['handlers']['console']['level'] = 'INFO'
+
