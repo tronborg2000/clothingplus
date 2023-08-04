@@ -30,8 +30,12 @@ To run the ClothingPlus project locally, follow these steps:
 
    ```bash
    git clone <repository-url>
-
    Navigate to the project directory:
+   python -m venv venv
+   pip Install -r requirements.txt
+   python manage.py runserver
+
+ 
 
 bash
 Copy code
