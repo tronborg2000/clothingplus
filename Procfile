@@ -1,0 +1,1 @@
+web gunicorn clothingplus_project.wsgi:application --log-file -
