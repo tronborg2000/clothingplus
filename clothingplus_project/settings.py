@@ -138,8 +138,8 @@ SIMPLE_JWT = {
 
 LOGIN_REDIRECT_URL = '/products/'
 
-import os
+# import os
 
-if 'DYNO' in os.environ:
-    LOGGING['handlers']['console']['level'] = 'INFO'
+# if 'DYNO' in os.environ:
+#     LOGGING['handlers']['console']['level'] = 'INFO'
 
