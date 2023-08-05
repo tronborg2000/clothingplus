@@ -9,7 +9,7 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title='Price Comparison Project',
+        title='Clothing Plus',
         default_version='v1',
         description='description',
         terms_of_service='https://your-terms-of-service.com/',
